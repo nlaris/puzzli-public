@@ -1,0 +1,89 @@
+.App {
+  text-align: center;
+}
+
+.greeting-modal .modal-content {
+  background-color: rgb(210, 210, 210);
+  text-align: center;
+}
+
+.help-modal .modal-content {
+  background-color: rgb(210, 210, 210);
+  text-align: center;
+  align-items: center;
+  margin-top: 20%
+}
+
+.victory-modal .modal-content {
+  background-color: rgb(210, 210, 210);
+  text-align: center;
+  align-items: center;
+  margin-top: 20%
+}
+
+.close-button-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.grid-item {
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: manipulation;
+}
+
+.icon {
+  height: 40px;
+}
+
+.button-icon {
+  height: 30px;
+}
+
+.game-button {
+  margin-left: 20px;
+  margin-right: 20px;
+  min-width: 125px;
+}
+
+.navbar {
+  position: relative;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: scale(1);
+  }
+  45%, 55% {
+    transform: scale(1.045);
+  }
+}
+
+.tile {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.wave {
+  animation: wave 1s ease-in-out;
+}
+
+.elapsed-time-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px; /* Adjust as necessary */
+}
+
+.tile {
+  transition: transform 0.3s ease;
+}
+
+html body {
+  background-color: rgb(199, 180, 171);
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+

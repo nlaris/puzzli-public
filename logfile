@@ -1,0 +1,10 @@
+2024-05-27 17:14:54.416 UTC [6229] LOG:  starting PostgreSQL 16.3 (Homebrew) on x86_64-pc-linux-gnu, compiled by gcc-11 (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
+2024-05-27 17:14:54.418 UTC [6229] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-05-27 17:14:54.430 UTC [6229] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-05-27 17:14:54.472 UTC [6232] LOG:  database system was shut down at 2024-05-27 17:12:32 UTC
+2024-05-27 17:14:54.508 UTC [6229] LOG:  database system is ready to accept connections
+2024-05-27 17:15:51.815 UTC [6272] FATAL:  role "postgres" does not exist
+2024-05-27 17:19:54.456 UTC [6230] LOG:  checkpoint starting: time
+2024-05-27 17:19:57.610 UTC [6230] WARNING:  could not flush dirty data: Function not implemented
+2024-05-27 17:19:58.662 UTC [6230] LOG:  checkpoint complete: wrote 44 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.147 s, sync=0.035 s, total=4.206 s; sync files=11, longest=0.006 s, average=0.004 s; distance=260 kB, estimate=260 kB; lsn=0/1530870, redo lsn=0/1530838
+2024-05-27 17:21:49.677 UTC [6326] FATAL:  role "postgres" does not exist
