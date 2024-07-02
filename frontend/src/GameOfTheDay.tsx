@@ -263,6 +263,17 @@ export default function GameOfTheDay() {
   if (gameLoading || !gameExists || !gameTiles) return null;
   if (gameError) return <ErrorModal greetingIcon={greetingIcon}/>;
 
+  const tiles = gameTiles.map(tile => (
+    <SortableItem
+      id={tile.pattern}
+      key={tile.id}
+      pattern={tile.pattern}
+      rotation={tile.rotation}
+      activeId={activeId}
+      disabled={hintUsed && tile.solutionIndex === 4}
+    />
+  ));
+
   return (
     <div>
       <GreetingModal 
@@ -308,16 +319,7 @@ export default function GameOfTheDay() {
             >
               <SortableContext items={gameTiles.map(tile => tile.pattern)} strategy={rectSwappingStrategy}>
                 <Grid columns={3}>
-                  {gameTiles.map(tile => (
-                    <SortableItem
-                      id={tile.pattern}
-                      key={tile.id}
-                      pattern={tile.pattern}
-                      rotation={tile.rotation}
-                      activeId={activeId}
-                      disabled={hintUsed && tile.solutionIndex === 4}
-                    />
-                  ))}
+                  {tiles}
                 </Grid>
               </SortableContext>
               <DragOverlay>
@@ -336,7 +338,7 @@ export default function GameOfTheDay() {
           }
         </div>
       }
-      { numSolutions > 0 && 
+      {
         <div style={{fontSize: 22, margin: 15}}> 
           Total Solutions: <span style={{ color: getSolutionsFontColor(numSolutions) }}>{numSolutions}</span> 
         </div> 
