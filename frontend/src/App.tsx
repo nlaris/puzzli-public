@@ -7,6 +7,7 @@ import {
   HttpLink
 } from "@apollo/client";
 import GameOfTheDay from './GameOfTheDay';
+import { getTodaysDate } from './utils/gameUtils';
 
 const API_URL = process.env.REACT_APP_PUZZLI_API_URL;
 

@@ -28,13 +28,13 @@ module TileGenerator
   # Generate the webp files for all tile patterns
   # SVGs allow us to build the images from scratch, but we want webps for better loading
   def self.generate_all_tile_svgs
-    Constants::PATTERNS.each do |pattern|
+    PatternGenerator::get_patterns.each do |pattern|
       svg = create_tile_svg(pattern)
       convert_svg_to_webp(svg.render, "frontend/src/images/tiles/#{pattern}.webp")
     end
   end
 
-  def self.create_tile_svg(pattern)
+  def self.create_tile_svg(pattern, color = 'black')
     raise "Invalid pattern" if pattern.length != 8 || pattern.delete("WB").length > 0
     svg = Victor::SVG.new width: WIDTH, height: WIDTH
 
@@ -46,7 +46,7 @@ module TileGenerator
         polygon points: COORDS[index], fill: 'white', stroke: 'none'
       end
       b_indices.each do |index|
-        polygon points: COORDS[index], fill: 'black', stroke_width: 2, stroke: 'black'
+        polygon points: COORDS[index], fill: color, stroke_width: 2, stroke: color
       end
     end
 

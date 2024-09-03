@@ -8,7 +8,8 @@ interface GreetingModalProps {
   onGreetingClose: ()=>void,
   showModal: boolean,
   gameNumber: number,
-  greetingIcon: any
+  greetingIcon: any,
+  disableButton: boolean
 }
 
 function GreetingModal(props: GreetingModalProps) {
@@ -20,13 +21,14 @@ function GreetingModal(props: GreetingModalProps) {
     animation={false}
     >
       <Modal.Body style={{marginTop: window.innerHeight * .2}}>
-        <img src={props.greetingIcon} width={100} style={{borderRadius: 12}} alt='icon'/>
+        <img src={props.greetingIcon} width={100} style={{borderRadius: 12, rotate: `180deg`}} alt='icon'/>
         <div style={{fontSize: 70, fontWeight: 'bold'}}> Puzzli </div>
         <div style={{fontSize: 22}}> Arrange the tiles to match<br/>all adjacent edges </div>
         <Button 
           variant="primary"
           onClick={() => props.onGreetingClose()} 
-          style={{margin: 20, width: 120}}>
+          style={{margin: 20, width: 120}}
+          disabled={props.disableButton}>
           Start
         </Button>
         <div style={{fontSize: 24}}> {new Date().toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) } </div>

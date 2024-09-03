@@ -14,7 +14,7 @@ function ErrorModal(icon: any) {
       <Modal.Body style={{marginTop: window.innerHeight * .2}}>
         <img src={icon.greetingIcon} width={100} style={{borderRadius: 12}} alt='icon'/>
         <div style={{fontSize: 70, fontWeight: 'bold'}}> Puzzli </div>
-        <div style={{fontSize: 30, marginBottom: 10}}> There's been an error.<br/>Check back soon! </div>
+        <div style={{fontSize: 30, marginBottom: 10}}> Puzzli is under maintenance.<br/>Check back soon! </div>
         <div style={{fontSize: 24}}> {new Date().toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) } </div>
       </Modal.Body>
     </Modal>

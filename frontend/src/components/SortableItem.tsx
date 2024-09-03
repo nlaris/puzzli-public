@@ -36,7 +36,7 @@ const SortableItem: React.FC<SortableItemProps> = ({ id, pattern, rotation, acti
       {...(disabled ? {} : listeners)}
       className='tile'
     >
-      <Item pattern={pattern} rotation={rotation} isDragging={isDragging} disabled={disabled} />
+      <Item pattern={pattern} rotation={rotation} isDragging={isDragging} disabled={disabled}/>
     </div>
   );
 };

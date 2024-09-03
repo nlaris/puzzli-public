@@ -48,7 +48,7 @@ export default function GameOfTheDay() {
   const { getItem: getStoredStreak, setItem: setStoredStreak } = useLocalStorage('streak');
   const { getItem: getStoredHintUsed, setItem: setStoredHintUsed } = useLocalStorage('hintUsed');
 
-  const { image: greetingIcon } = useImage("tiles/BBWBWWBW.webp")
+  const { image: greetingIcon } = useImage("tiles/WWBWBBWB.webp")
   const { image: howToImg } = useImage("how-to.png")
   const { image: helpIcon } = useImage("help.png")
   const { image: gitIcon } = useImage("git.png")
@@ -93,7 +93,13 @@ export default function GameOfTheDay() {
 
   const [submitUserGameState] = useMutation(SUBMIT_USER_GAME, {
     onCompleted: (submitData) => {
-      if (!submitData.submitUserGame.success) return;
+      if (!submitData.submitUserGame.success) {
+        trackEvent('submission failed', {
+          tiles: gameTiles,
+          userId: getUserId(getStoredUserId, setStoredUserId),
+          date: getTodaysDate()});
+        return;
+      }
       if (submitData.submitUserGame.solved) {
         setStoredStreak(submitData.submitUserGame.streak);
         setStoredCompleted(true);
@@ -260,8 +266,7 @@ export default function GameOfTheDay() {
     })
   }
 
-  if (gameLoading || !gameExists || !gameTiles) return null;
-  if (gameError) return <ErrorModal greetingIcon={greetingIcon}/>;
+  if (!gameExists || gameError || process.env.REACT_APP_PUZZLI_MAINTENANCE === "true") return <ErrorModal greetingIcon={greetingIcon}/>;
 
   const tiles = gameTiles.map(tile => (
     <SortableItem
@@ -285,7 +290,8 @@ export default function GameOfTheDay() {
         }}
         showModal={modalState === 'greeting'}
         gameNumber={getGameNumber()} 
-        greetingIcon={greetingIcon}>
+        greetingIcon={greetingIcon}
+        disableButton={gameLoading || !gameTiles}>
       </GreetingModal>
       <HelpModal 
         onHelpClose={() => setModalState('game')}
