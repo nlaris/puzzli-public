@@ -85,6 +85,7 @@ export default function GameOfTheDay() {
     setStoredTileOrder(gameOfTheDay.tiles);
     setElapsedTime(0);
     setStoredElapsedTime(0);
+    setHintUsed(false);
     setStoredHintUsed(false);
     trackEvent('game started', {
       userId: getUserId(getStoredUserId, setStoredUserId),
