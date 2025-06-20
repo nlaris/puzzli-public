@@ -1,3 +1,5 @@
+**Note:** The code in this repo is not up to date with what's reflected on the live Puzzli website. This was the initial version (classic mode only) that I worked on with the intent of getting more familiar with this specific tech stack. What started as a practice problem became a passion project that I've optimized and built out. 🙂
+
 # Puzzli
 
 Play Puzzli at [puzzligame.com](https://puzzligame.com/)
